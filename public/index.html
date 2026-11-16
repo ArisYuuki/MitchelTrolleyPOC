@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Items</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; }
+    table { border-collapse: collapse; }
+    th, td { border: 1px solid #ccc; padding: 6px 12px; text-align: left; }
+    th { background: #f0f0f0; }
+  </style>
+</head>
+<body>
+  <h1>Food Items</h1>
+
+  <table id="food-table">
+    <thead>
+      <tr><th>ID</th><th>Name</th><th>Price</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <p><small>Disclaimer: This app is for demonstrating a student's web development skills only.</small></p>
+
+  <script>
+    // Get the foods from the API and add a row to the table for each one
+    fetch('/foods')
+      .then(res => res.json())
+      .then(foods => {
+        const tbody = document.querySelector('#food-table tbody');
+        foods.forEach(food => {
+          const row = document.createElement('tr');
+          row.innerHTML = `<td>${food.id}</td><td>${food.name}</td><td>$${food.price.toFixed(2)}</td>`;
+          tbody.appendChild(row);
+        });
+      })
+      .catch(err => console.error('Error loading foods:', err));
+  </script>
+</body>
+</html>

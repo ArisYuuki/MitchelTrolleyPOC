@@ -1,0 +1,20 @@
+{
+  "name": "mitcheltrolleypoc",
+  "version": "1.0.0",
+  "description": "Full stack proof-of-concept: Express API, mock DB, DOM table",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.3.0"
+  },
+  "devDependencies": {
+    "jest": "^30.5.2",
+    "supertest": "^7.3.2"
+  }
+}
